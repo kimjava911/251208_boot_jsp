@@ -28,4 +28,9 @@ public class MainController {
                 customerService.findByIdWithProducts(id));
         return "customer/detail";
     }
+
+    @GetMapping("/scriptlet-demo")
+    public String scriptletDemo() {
+        return "scriptlet-demo";
+    }
 }
