@@ -1,0 +1,19 @@
+# 1. port -> spring boot -> 8080 (tomcat의 기본 포트)
+server:
+  port: 8080
+# 필요시 변경
+
+spring:
+  application:
+    name: 251208_boot_jsp
+  # 2. profile
+  profiles:
+    active: dev
+    # application-dev.yaml 또는 application-dev.yml
+    # jar 직접 실행이나 배포 시 환경변수 -> prod.
+  # 3. mvc view resolver
+  mvc:
+    view:
+      prefix: "/WEB-INF/views/"
+      suffix: ".jsp"
+  # jasper 의존성을 통해 jsp 컴파일한 파일을 사용하는 개념이라 우리가 직접 경로를 지정해줘야함
