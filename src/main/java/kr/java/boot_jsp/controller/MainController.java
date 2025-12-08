@@ -38,4 +38,9 @@ public class MainController {
     public String directiveDemo() {
         return "directive-demo";
     }
+
+    @GetMapping("/include-demo")
+    public String includeDemo() {
+        return "include-demo";
+    }
 }
