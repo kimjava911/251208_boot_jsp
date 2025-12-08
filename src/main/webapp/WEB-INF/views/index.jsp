@@ -20,6 +20,21 @@
         LocalDateTime serverTime = (LocalDateTime) request.getAttribute("serverTime");
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
     %>
-    <p>서버 시간 : <%= serverTime.format(formatter) %> </p>
+    <p>서버 시간 : <%= serverTime.format(formatter) %></p>
+
+    <% if (customers != null && !customers.isEmpty ()) { %>
+    <% for (Customer customer : customers) { %>
+        <div>
+            <h3>
+                <%-- 세부 페이지로 이동 / 고객 이름 --%>
+                <a href="/customer/<%= customer.getId() %>">
+                    <%= customer.getName() %></a></h3>
+                <p>이메일 : <%= customer.getEmail() %></p>
+                <p>보유 상품 수 : <%= customer.getProducts().size() %>개</p>
+        </div>
+    <% } // 반복문 닫아줌 %>
+    <% } else { // null이거나 비어있을 때 %>
+        <p>등록된 고객이 없습니다</p>
+    <% } %>
 </body>
 </html>

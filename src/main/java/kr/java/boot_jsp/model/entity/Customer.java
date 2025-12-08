@@ -17,7 +17,7 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // MySQL, MariaDB -> Auto Increment
     // @Column
-    public Long id;
+    private Long id;
 
     private String name;
     private String email;
