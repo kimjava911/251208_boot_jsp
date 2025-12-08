@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.time.LocalDateTime;
 
-@Controller // Dispacher Servlet에 연결
+@Controller // Dispatcher Servlet에 연결
 @RequiredArgsConstructor
 public class MainController {
     private final CustomerService customerService;
@@ -32,5 +32,10 @@ public class MainController {
     @GetMapping("/scriptlet-demo")
     public String scriptletDemo() {
         return "scriptlet-demo";
+    }
+
+    @GetMapping("/directive-demo")
+    public String directiveDemo() {
+        return "directive-demo";
     }
 }
