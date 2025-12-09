@@ -61,4 +61,9 @@ public class MainController {
     public String jstlDemo() {
         return "jstl-demo";
     }
+
+    @GetMapping("/scope-demo")
+    public String scopeDemo() {
+        return "scope-demo";
+    }
 }
