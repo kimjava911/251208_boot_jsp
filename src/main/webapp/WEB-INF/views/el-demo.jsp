@@ -147,16 +147,89 @@
         </tr>
     </table>
 
+    <h2>5. 컬렉션 접근</h2>
+    <table border="1">
+        <tr>
+            <th>접근 방식</th>
+            <th>EL 표현식</th>
+            <th>결과</th>
+        </tr>
+        <tr>
+            <td>인덱스로 접근</td>
+            <td><code>&#36;{fruits[0]}</code></td>
+            <td>${fruits[0]}</td>
+        </tr>
+        <tr>
+            <td>두 번째 요소</td>
+            <td><code>&#36;{fruits[1]}</code></td>
+            <td>${fruits[1]}</td>
+        </tr>
+    </table>
 
+    <h2>6. 명시적 스코프 지정</h2>
+    <%
+        // 서로 다른 스코프에 같은 이름으로 저장
+        pageContext.setAttribute("message", "페이지 스코프 메시지");
+        request.setAttribute("message", "리퀘스트 스코프 메시지");
+        session.setAttribute("message", "세션 스코프 메시지");
+    %>
+    <table border="1">
+        <tr>
+            <th>스코프</th>
+            <th>EL 표현식</th>
+            <th>결과</th>
+        </tr>
+        <tr>
+            <td>자동 탐색</td>
+            <td><code>&#36;{message}</code></td>
+            <td>${message} (가장 좁은 pageScope에서 발견)</td>
+        </tr>
+        <tr>
+            <td>pageScope 명시</td>
+            <td><code>&#36;{pageScope.message}</code></td>
+            <td>${pageScope.message}</td>
+        </tr>
+        <tr>
+            <td>requestScope 명시</td>
+            <td><code>&#36;{requestScope.message}</code></td>
+            <td>${requestScope.message}</td>
+        </tr>
+        <tr>
+            <td>sessionScope 명시</td>
+            <td><code>&#36;{sessionScope.message}</code></td>
+            <td>${sessionScope.message}</td>
+        </tr>
+    </table>
 
+    <h2>7. EL의 null 안전성</h2>
+    <p>EL의 큰 장점: null이어도 에러가 나지 않고 빈 문자열로 처리됩니다.</p>
+    <table border="1">
+        <tr>
+            <th>상황</th>
+            <th>스크립틀릿</th>
+            <th>EL</th>
+        </tr>
+        <tr>
+            <td>null 출력</td>
+            <td>NullPointerException 가능
+                <%= request.getAttribute("nullValue") %>
+                <%-- NullPointerException : 특정한 타입이 갖고 있는 속성이나 메서드를 호출 했을 때 해당 타입을 담은 변수에 null이 들어갈 경우 --%>
+<%--                <%= ((String) request.getAttribute("nullValue")).length() %>--%>
+            </td>
+            <td>${nullValue} → (아무것도 출력 안 됨) ${nullValue.size}</td>
+        </tr>
+        <tr>
+            <td>없는 변수</td>
+            <td>null 반환 (<%= request.getAttribute("nonExistent") %>)</td>
+            <td>${nonExistent} → (아무것도 출력 안 됨)</td>
+        </tr>
+    </table>
 
-
-
-
-
-
-
-
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
 </body>
 </html>
