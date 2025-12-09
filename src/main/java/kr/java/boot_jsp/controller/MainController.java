@@ -51,4 +51,14 @@ public class MainController {
         model.addAttribute("list", List.of("사과", "바나나", "오렌지"));
         return "taglib-demo";
     }
+
+    @GetMapping("/el-demo")
+    public String elDemo() {
+        return "el-demo";
+    }
+
+    @GetMapping("/jstl-demo")
+    public String jstlDemo() {
+        return "jstl-demo";
+    }
 }
