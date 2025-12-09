@@ -8,11 +8,19 @@
 <%@ page import="java.time.LocalDateTime" %>
 <%@ page import="java.time.format.DateTimeFormatter" %>
 
-<html>
-<head>
-    <title>고객 및 상품 관리</title>
-</head>
-<body>
+<%-- jsp action tag --%>
+<jsp:include page="/WEB-INF/views/common/header.jsp">
+    <jsp:param name="pageTitle" value="홈"/>
+</jsp:include>
+<jsp:include page="/WEB-INF/views/common/nav.jsp">
+    <jsp:param name="currentPage" value="home"/>
+</jsp:include>
+
+<%--<html>--%>
+<%--<head>--%>
+<%--    <title>고객 및 상품 관리</title>--%>
+<%--</head>--%>
+<%--<body>--%>
     <h1>고객 목록</h1>
     <%
         // 일반적인 스크립틀릿 -> 흐름제어, 변수 선언 등
